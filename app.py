@@ -15,7 +15,7 @@ from io import BytesIO
 import requests
 import urllib.request
 import textwrap
-st.write('Test')
+
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
         font_bytes = BytesIO(f.read())
