@@ -67,20 +67,20 @@ if st.button('Randomin'):
 st.markdown("----", unsafe_allow_html=True)
 
 db1 = firestore.Client(credentials=creds, project="testrandom1-6cf06")
-col = db.collection('listrandom').document('wal')
+col1 = db.collection('Story_waliy')
 
 with st.form("my_form"):
     st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
     nama = st.text_input("Namanya? 🧑 👩")
     cerita = st.text_area("Cerita singkatnya gimana nih? ✍🏻")
     submitted = st.form_submit_button("Submit")
-
+    if submitted:
+        col1.add({"Tanggal": tgl_random, "Cerita": cerita})
+        st.write('Terimakasih 👍')
 # If the user clicked the submit button. write the data from the form to the database.
 # You can store any data you want here. Just modify that dictionary below (the entries between the {}).
 
-if submitted:
-    db1.put({"Nama": nama, "Cerita": cerita})
-    st.write('Terimakasih 👍')
+
 
 
 
