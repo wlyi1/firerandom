@@ -82,18 +82,6 @@ with st.form("my_form"):
 
 
 
-
-
-db_content = db.fetch().items
-#st.write(db_content)
-df = pd.DataFrame(db_content)
-data_lis = df['Random'].value_counts()[:3].index.tolist()
-
-st.header('3 Top Trending Randomku')
-st.info(data_lis[0])
-st.success(data_lis[1])
-st.warning(data_lis[2])
-
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
