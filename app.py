@@ -25,7 +25,7 @@ key_dict = json.loads(st.secrets["textkey"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
 db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
-col = db.collection('listrandom').document('wal')
+
 
 resp = requests.get('https://raw.githubusercontent.com/wlyi1/random/main/Random/rdt1.png')
 image3 = Image.open(BytesIO(resp.content))
@@ -57,23 +57,47 @@ for i in word:
 
 st.caption('Jangan lupa tag @randomku dan pake #random #randomku biar tau cerita menarikmu apa hari ini 🤣')
 
+col = db.collection('waliy')
 if st.button('Randomin'):
     st.image(image3)
-    col.set({'Tanggal' : tgl_random, 'Random' : today_rand})
+    col.add({'Tanggal' : tgl_random, 'Random' : today_rand})
     st.balloons()
 
 
 st.markdown("----", unsafe_allow_html=True)
 
-st.write(col.get())
+db1 = firestore.Client(credentials=creds, project="testrandom1-6cf06")
+col = db.collection('listrandom').document('wal')
 
-for doc in col.stream():
-    st.write(f'{doc.id} => {doc.to_dict()}')
+with st.form("my_form"):
+    st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
+    nama = st.text_input("Namanya? 🧑 👩")
+    cerita = st.text_area("Cerita singkatnya gimana nih? ✍🏻")
+    submitted = st.form_submit_button("Submit")
 
-doc_ref = db.collection('users').document('waliy')
-doc = doc_ref.get()
-docs = doc.to_dict()
+# If the user clicked the submit button. write the data from the form to the database.
+# You can store any data you want here. Just modify that dictionary below (the entries between the {}).
 
-st.write(doc.id)
-df = pd.DataFrame(doc.to_dict(), index=[0])
-st.write(df)
+if submitted:
+    db1.put({"Nama": nama, "Cerita": cerita})
+    st.write('Terimakasih 👍')
+
+
+
+db_content = db.fetch().items
+#st.write(db_content)
+df = pd.DataFrame(db_content)
+data_lis = df['Random'].value_counts()[:3].index.tolist()
+
+st.header('3 Top Trending Randomku')
+st.info(data_lis[0])
+st.success(data_lis[1])
+st.warning(data_lis[2])
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
