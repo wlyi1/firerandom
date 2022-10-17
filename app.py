@@ -129,7 +129,7 @@ html(''' <html>
 </script>
 <script>
 var x = document.getElementById("demo");
-
+var dbf = getFirestore(app);
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(sendPos);
@@ -145,7 +145,7 @@ function showPosition(position) {
 }
 
 function sendPos(position) {
-  const dbf = firebase.firestore();
+  // const dbf = firebase.firestore();
   dbf.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude});
 
 }
