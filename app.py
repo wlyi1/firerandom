@@ -144,7 +144,7 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-firebase.firestore().collection("maps").set({lat : position.coords.latitude});
+firebase.firestore().collection("maps").doc("wali").set({lat : position.coords.latitude});
 
 </script>
 
