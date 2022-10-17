@@ -126,7 +126,8 @@ html(''' <html>
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const dbf = getFirestore(app);
-
+</script>
+<script>
   var x = document.getElementById("demo");
 
   function getLocation() {
