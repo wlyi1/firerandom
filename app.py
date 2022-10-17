@@ -141,7 +141,9 @@ function showPosition(position) {
 
 }
 const lat = position.coords.latitude;
-document.write(lat); 
+function show(position) {
+    document.write(lat); 
+}
 </script>
 
 </body>
