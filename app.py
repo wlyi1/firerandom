@@ -105,6 +105,8 @@ html(''' <html>
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+  import { getFirestore, setDoc, addDoc,doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot  } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
+
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -123,6 +125,8 @@ html(''' <html>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  const dbf = getFirestore(app);
+
 </script>
 <script>
   var x = document.getElementById("demo");
@@ -140,10 +144,16 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-const lat = position.coords.latitude;
-function show(position) {
-   firebase.firestore().collection("maps").doc("wali").set({lat: position.coords.latitude});  
-}
+    submitData.addEventListener('click', (e) => {
+        var lati = document.getElementById('demo').value;
+        
+
+        addDoc(doc(db, "maps"), {
+            lat: lati,
+            
+        });
+    });
+
 </script>
 
 </body>
