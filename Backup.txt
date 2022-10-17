@@ -15,7 +15,6 @@ from io import BytesIO
 import requests
 import urllib.request
 import textwrap
-import streamlit.components.v1 as components
 
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
@@ -90,62 +89,3 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-my_js = ''' <html>
-<body>
-
-<p>Click the button to get your coordinates.</p>
-
-<button onclick="getLocation()">Try It</button>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDIXll1IVcHQM4dwmovHYRyQm47R-eCIHc",
-    authDomain: "testrandom1-6cf06.firebaseapp.com",
-    projectId: "testrandom1-6cf06",
-    storageBucket: "testrandom1-6cf06.appspot.com",
-    messagingSenderId: "326026321843",
-    appId: "1:326026321843:web:456ef360e512307dd6b5c6",
-    measurementId: "G-KFB1W9K2CM"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-
-<p id="demo"></p>
-
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-  let lat = position.coords.latitude
-  document.write(position.coords.latitude + 5);
-  firebase.firestore().collection("maps").doc("wali").set({lat: lat});
-}
-const lat = position.coords.latitude; 
-</script>
-
-</body>
-</html> '''
-
-components.html(my_js)
