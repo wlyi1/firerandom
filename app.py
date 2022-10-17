@@ -135,11 +135,11 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-let lati = (position.coords.latitude);
+
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-}
+};
 
 const lati = (position.coords.latitude) => {firebase.firestore().collection("maps").doc("wali").set({lat: lati});}
 
