@@ -140,7 +140,8 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-const lat = position.coords.latitude; 
+const lat = position.coords.latitude;
+document.write(lat); 
 </script>
 
 </body>
