@@ -125,9 +125,9 @@ html(''' <html>
   const analytics = getAnalytics(app);
 </script>
 
-<script language="javascript">
+<script>
 var x = document.getElementById("demo");
-var dbf = firebase.firestore();
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -139,10 +139,9 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-};
 
-const lati = (position.coords.latitude) => {firebase.firestore().collection("maps").doc("wali").set({lat: lati});}
-
+}
+const lat = position.coords.latitude; 
 </script>
 
 </body>
