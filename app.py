@@ -103,10 +103,6 @@ html(''' <html>
 
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It </button>
-
-<p id="rand"></p>
-
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
