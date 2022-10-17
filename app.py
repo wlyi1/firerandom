@@ -97,7 +97,7 @@ html(''' <html>
 
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It Gan</button>
+<button onclick="getLocation()">Try It Gan1</button>
 
 <p id="demo"></p>
 
@@ -137,11 +137,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-  let lati = position.coords.longitude;
   firebase.firestore().collection("maps").doc("wali").set({lat : lati}).then(()=> {console.log("document succes");});
-
 }
 const lat = position.coords.latitude; 
 </script>
@@ -154,3 +150,7 @@ const lat = position.coords.latitude;
 #let lat = position.coords.latitude;
   #document.write(position.coords.latitude + 5);
   #firebase.firestore().collection("maps").doc("wali").set({lat: lat});
+
+  #x.innerHTML = "Latitude: " + position.coords.latitude + 
+  #"<br>Longitude: " + position.coords.longitude;
+  #let lati = position.coords.longitude;
