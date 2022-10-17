@@ -101,7 +101,7 @@ html(''' <html>
 
 <p id="demo"></p>
 
-<script>
+<script language="javascript">
 var x = document.getElementById("demo");
 
 function getLocation() {
