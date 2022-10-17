@@ -145,8 +145,10 @@ function showPosition(position) {
 }
 
 function sendPos(position) {
-  // const dbf = firebase.firestore();
-  dbf.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude});
+  
+  firebase.firestore.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude}).then(() => {
+    console.log("Document created");
+  });
 
 }
 
