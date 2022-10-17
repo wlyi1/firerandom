@@ -148,7 +148,7 @@ function showPosition(position) {
         var lati = position.coords.latitude;
         
 
-        addDoc(doc(db, "maps"), {
+        addDoc(doc(dbf, "maps"), {
             lat: lati
             
         });
