@@ -98,13 +98,15 @@ html(''' <html>
 <p>Click the button to get your coordinates.</p>
 
 <button onclick="getLocation()">Try It Gan1</button>
-
+<button type="button" id="submit" name="submit data"> Send </button>
 <p id="demo"></p>
 
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+  import { getFirestore, addDoc,doc, } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
+
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -123,9 +125,11 @@ html(''' <html>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-</script>
+  const dbf = getFirestore(app);
 
-<script>
+
+
+
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -146,6 +150,10 @@ function sendData(position) {
 
 }
 const lat = position.coords.latitude; 
+submit.addEventListener('click', (e) =>addDoc(doc(dbf, "maps"), {
+        name: name
+        
+    });)
 </script>
 
 </body>
