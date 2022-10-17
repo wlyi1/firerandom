@@ -128,6 +128,27 @@ html(''' <html>
   const dbf = getFirestore(app);
 </script>
 <script>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDIXll1IVcHQM4dwmovHYRyQm47R-eCIHc",
+    authDomain: "testrandom1-6cf06.firebaseapp.com",
+    projectId: "testrandom1-6cf06",
+    storageBucket: "testrandom1-6cf06.appspot.com",
+    messagingSenderId: "326026321843",
+    appId: "1:326026321843:web:456ef360e512307dd6b5c6",
+    measurementId: "G-KFB1W9K2CM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
 var x = document.getElementById("demo");
 var dbf = getFirestore(app);
 function getLocation() {
@@ -146,7 +167,7 @@ function showPosition(position) {
 
 function sendPos(position) {
   
-  firebase.firestore.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude}).then(() => {
+  app.firestore.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude}).then(() => {
     console.log("Document created");
   });
 
