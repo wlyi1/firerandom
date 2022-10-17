@@ -139,8 +139,9 @@ let lati = (position.coords.latitude);
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-  app.collection("maps").add({lat: position.coords.latitude});
 }
+
+const lati = (position.coords.latitude) => {firebase.firestore().collection("maps").doc("wali").set({lat: lati});}
 
 </script>
 
