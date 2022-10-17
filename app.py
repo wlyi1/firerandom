@@ -124,10 +124,10 @@ html(''' <html>
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-var dbf = firebase.firestore();
+
 <script language="javascript">
 var x = document.getElementById("demo");
-
+var dbf = firebase.firestore();
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
