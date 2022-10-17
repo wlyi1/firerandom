@@ -126,8 +126,7 @@ html(''' <html>
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const dbf = getFirestore(app);
-</script>
-<script>
+
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -143,7 +142,7 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-const dbf = firebase.firestore();
+// const dbf = firebase.firestore();
 dbf.collection("maps").doc("wali").set({lat: position.coords.latitude});
 
 
