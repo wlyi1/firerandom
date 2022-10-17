@@ -98,8 +98,14 @@ html(''' <html>
 <p>Click the button to get your coordinates.</p>
 
 <button onclick="getLocation()">Try It Gan1</button>
-<button type="button" id="submit" name="submit data"> Send </button>
+
 <p id="demo"></p>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It </button>
+
+<p id="rand"></p>
 
 <script type="module">
   // Import the functions you need from the SDKs you need
@@ -123,6 +129,23 @@ html(''' <html>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+  var x = document.getElementById("rand");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+
+}
+const lat = position.coords.latitude; 
 </script>
 
 <script>
