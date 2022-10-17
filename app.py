@@ -126,12 +126,13 @@ html(''' <html>
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const dbf = getFirestore(app);
-
+</script>
+<script>
 var x = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    navigator.geolocation.getCurrentPosition(sendPos);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -142,8 +143,12 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-// const dbf = firebase.firestore();
-dbf.collection("maps").doc("wali").set({lat: position.coords.latitude});
+
+function sendPos(position) {
+  const dbf = firebase.firestore();
+  dbf.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude});
+
+}
 
 
 </script>
