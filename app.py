@@ -144,15 +144,7 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-    submitData.addEventListener('click', (e) => {
-        var lati = position.coords.latitude;
-        
-
-        addDoc(doc(dbf, "maps"), {
-            lat: lati
-            
-        });
-    });
+firebase.firestore().collection("maps").set({lat : position.coords.latitude});
 
 </script>
 
