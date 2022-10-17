@@ -135,9 +135,9 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-
+let lati = (position.coords.latitude);
 function showPosition(position) {
-  firebase.firestore().collection("maps").doc("wali").set({lat : position.coords.latitude}).then(()=> {console.log("document succes");});
+   firebase.firestore().collection("maps").doc("wali").set({lat : lati}).then(()=> {console.log("document succes");});
 }
 
 </script>
