@@ -128,18 +128,13 @@ html(''' <html>
   const dbf = getFirestore(app);
 </script>
 <script>
-  var x = document.getElementById("demo");
+function success(position) {
+  const latitude  = position.coords.latitude;
+  const longitude = position.coords.longitude;
 
-function success(pos) {
-  const crd = pos.coords;
-
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
-
-navigator.geolocation.getCurrentPosition(success);
+  // Do something with your latitude and longitude
 }
+  
 </script>
 
 </body>
