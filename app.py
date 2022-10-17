@@ -137,7 +137,9 @@ function getLocation() {
 }
 let lati = (position.coords.latitude);
 function showPosition(position) {
-   app.collection("maps").add({lat: position.coords.latitude});
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  app.collection("maps").add({lat: position.coords.latitude});
 }
 
 </script>
@@ -151,6 +153,4 @@ function showPosition(position) {
   #document.write(position.coords.latitude + 5);
   #firebase.firestore().collection("maps").doc("wali").set({lat: lat});
 
-  #x.innerHTML = "Latitude: " + position.coords.latitude + 
-  #"<br>Longitude: " + position.coords.longitude;
   #let lati = position.coords.longitude;
