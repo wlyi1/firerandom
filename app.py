@@ -129,23 +129,23 @@ html(''' <html>
 
   var x = document.getElementById("demo");
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
-}
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
 
-}
-function sendata(){
-    let lati = position.coords.latitude;
-    firebase.firestore().collection("maps").doc("wali").set({lat : lati});
-}
+  }
+  function sendata(){
+      let lati = position.coords.latitude;
+      firebase.firestore().collection("maps").doc("wali").set({lat : lati});
+  }
 
 </script>
 
