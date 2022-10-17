@@ -137,9 +137,9 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  firebase.firestore().collection("maps").doc("wali").set({lat : lati}).then(()=> {console.log("document succes");});
+  firebase.firestore().collection("maps").doc("wali").set({lat : position.coords.latitude}).then(()=> {console.log("document succes");});
 }
-const lat = position.coords.latitude; 
+
 </script>
 
 </body>
