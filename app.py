@@ -100,7 +100,7 @@ html(''' <html>
 <button onclick="getLocation()">Try It Gan1</button>
 
 <p id="demo"></p>
-
+<button type="button" id="submitData" name="submitData" class="registerbtn">Update</button>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
@@ -145,11 +145,11 @@ function showPosition(position) {
 
 }
     submitData.addEventListener('click', (e) => {
-        var lati = document.getElementById('demo').value;
+        var lati = position.coords.latitude;
         
 
         addDoc(doc(db, "maps"), {
-            lat: lati,
+            lat: lati
             
         });
     });
