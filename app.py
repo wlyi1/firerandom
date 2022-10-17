@@ -137,7 +137,7 @@ function getLocation() {
 }
 let lati = (position.coords.latitude);
 function showPosition(position) {
-   dbf.collection("maps").add({lat: position.coords.latitude});
+   app.collection("maps").add({lat: position.coords.latitude});
 }
 
 </script>
