@@ -142,7 +142,7 @@ function showPosition(position) {
 
 }
 function sendData(position) {
-  firebase.firestore().collection("maps").doc("wali").set({lat: position.coords.latitude});
+  app.collection("maps").doc("wali").set({lat: position.coords.latitude});
 
 }
 const lat = position.coords.latitude; 
