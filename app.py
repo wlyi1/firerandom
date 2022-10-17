@@ -16,6 +16,7 @@ import requests
 import urllib.request
 import textwrap
 import streamlit.components.v1 as components
+from streamlit.components.v1 import html
 
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
@@ -91,12 +92,12 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-my_js = ''' <html>
+html(''' <html>
 <body>
 
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
+<button onclick="getLocation()">Try It Gan</button>
 
 <p id="demo"></p>
 
@@ -120,9 +121,9 @@ const lat = position.coords.latitude;
 </script>
 
 </body>
-</html> '''
+</html> ''')
 
-components.html(my_js)
+#components.html(my_js)
 
 #let lat = position.coords.latitude;
   #document.write(position.coords.latitude + 5);
