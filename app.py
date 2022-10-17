@@ -100,7 +100,7 @@ html(''' <html>
 <button onclick="getLocation()">Try It Gan1</button>
 
 <p id="demo"></p>
-<button type="button" id="submitData" name="submitData" class="registerbtn">Update</button>
+
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
@@ -127,8 +127,6 @@ html(''' <html>
   const analytics = getAnalytics(app);
   const dbf = getFirestore(app);
 
-</script>
-<script>
   var x = document.getElementById("demo");
 
 function getLocation() {
@@ -144,7 +142,10 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-firebase.firestore().collection("maps").doc("wali").set({lat : 40});
+function sendata(){
+    let lati = position.coords.latitude;
+    firebase.firestore().collection("maps").doc("wali").set({lat : lati});
+}
 
 </script>
 
