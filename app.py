@@ -129,7 +129,8 @@ html(''' <html>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
+</script>
+<script>
   var x = document.getElementById("rand");
 
 function getLocation() {
