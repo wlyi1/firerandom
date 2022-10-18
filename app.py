@@ -144,9 +144,29 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+import { getFirestore, setDoc, addDoc,doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot  } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
 
-var dbf = getFirestore(app);
-const id = doc(dbf, 'wali');
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDIXll1IVcHQM4dwmovHYRyQm47R-eCIHc",
+  authDomain: "testrandom1-6cf06.firebaseapp.com",
+  projectId: "testrandom1-6cf06",
+  storageBucket: "testrandom1-6cf06.appspot.com",
+  messagingSenderId: "326026321843",
+  appId: "1:326026321843:web:456ef360e512307dd6b5c6",
+  measurementId: "G-KFB1W9K2CM"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+var dbf = getFirestore();
+const id = doc(dbf, "wali");
 function sendPos(position) {
   const docData = {
     lat: position.coords.latitude
