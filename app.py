@@ -93,11 +93,11 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-if st.checkbox("Check my location"):
-    loc = get_geolocation()
-    with st.spinner('waiting'):
+loc = get_geolocation()
+with st.spinner('waiting'):
         time.sleep(3)
+    
+if st.checkbox("Check my location"):
     st.write(f"Your coordinates are {loc}")
     st.write(loc['coords']['latitude'])
     st.write(loc['coords']['longitude'])
