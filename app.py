@@ -125,19 +125,29 @@ html(''' <html>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  const dbf = getFirestore(app);
+  const dbf = getFirestore();
+  var x = document.getElementById("demo");
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(sendPos);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  const id = doc(dbf, "wali");
+  function sendPos(position) {
+    const docData = {
+      lat: position.coords.latitude
+    };
+    setDoc(id, docData);
+
+  }
+
+
 </script>
 <script>
 // Initialize Firebase
-
-var x = document.getElementById("demo");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(sendPos);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
 
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
@@ -146,14 +156,6 @@ function showPosition(position) {
 }
 
 var dbf = getFirestore(app);
-const id = doc(dbf, "wali");
-function sendPos(position) {
-  const docData = {
-    lat: position.coords.latitude
-  };
-  setDoc(id, docData);
-
-}
 
 
 </script>
