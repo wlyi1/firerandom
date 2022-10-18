@@ -129,9 +129,7 @@ html(''' <html>
 </script>
 <script>
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const dbf  = getFirestore();
+
 
 var x = document.getElementById("demo");
 var dbf = getFirestore(app);
