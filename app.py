@@ -131,7 +131,7 @@ html(''' <html>
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const dbf  = getFirestore()
+const dbf  = getFirestore();
 
 var x = document.getElementById("demo");
 var dbf = getFirestore(app);
@@ -153,7 +153,7 @@ function sendPos(position) {
   const docData = {
     lat: position.coords.latitude
   };
-  setDoc(id, docData)
+  setDoc(id, docData);
 
 }
 
