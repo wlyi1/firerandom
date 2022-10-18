@@ -148,7 +148,7 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-const id = doc(dbf, 'wali')
+const id = doc(dbf, 'wali');
 function sendPos(position) {
   const docData = {
     lat: position.coords.latitude
