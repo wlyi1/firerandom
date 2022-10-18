@@ -124,7 +124,10 @@ html(''' <html>
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-
+  const analytics = getAnalytics(app);
+  const dbf = getFirestore(app);
+</script>
+<script>
 // Initialize Firebase
 
 var x = document.getElementById("demo");
@@ -142,7 +145,7 @@ function showPosition(position) {
 
 }
 
-var dbf = getFirestore();
+var dbf = getFirestore(app);
 const id = doc(dbf, "wali");
 function sendPos(position) {
   const docData = {
