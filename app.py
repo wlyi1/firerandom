@@ -17,6 +17,8 @@ import urllib.request
 import textwrap
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
+from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
+import time
 
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
@@ -92,81 +94,10 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-html(''' <html>
-<body>
-
-<p>Click the button to get your coordinates.</p>
-
-<button onclick="getLocation()">Try It Gan1</button>
-
-<p id="demo"></p>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-  import { getFirestore, setDoc, addDoc,doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot  } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDIXll1IVcHQM4dwmovHYRyQm47R-eCIHc",
-    authDomain: "testrandom1-6cf06.firebaseapp.com",
-    projectId: "testrandom1-6cf06",
-    storageBucket: "testrandom1-6cf06.appspot.com",
-    messagingSenderId: "326026321843",
-    appId: "1:326026321843:web:456ef360e512307dd6b5c6",
-    measurementId: "G-KFB1W9K2CM"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const dbf = getFirestore();
-  var x = document.getElementById("demo");
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(sendPos);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  const id = doc(dbf, "wali");
-  function sendPos(position) {
-    const docData = {
-      lat: position.coords.latitude
-    };
-    setDoc(id, docData);
-
-  }
-
-
-</script>
-<script>
-// Initialize Firebase
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-
-}
-
-var dbf = getFirestore(app);
-
-
-</script>
-
-</body>
-</html> ''')
-
-#components.html(my_js)
-
-#let lat = position.coords.latitude;
-  #document.write(position.coords.latitude + 5);
-  #firebase.firestore().collection("maps").doc("wali").set({lat: lat});
-
-  #let lati = position.coords.longitude;
+if st.checkbox("Check my location"):
+    loc = get_geolocation()
+    with st.spinner('waiting'):
+        time.sleep(3)
+    st.write(f"Your coordinates are {loc}")
+    st.write(loc['coords']['latitude'])
+    st.write(loc['coords']['longitude'])
