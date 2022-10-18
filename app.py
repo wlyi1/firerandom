@@ -130,9 +130,7 @@ html(''' <html>
 <script>
 // Initialize Firebase
 
-
 var x = document.getElementById("demo");
-var dbf = getFirestore(app);
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(sendPos);
@@ -146,6 +144,8 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
+
+var dbf = getFirestore(app);
 const id = doc(dbf, 'wali');
 function sendPos(position) {
   const docData = {
