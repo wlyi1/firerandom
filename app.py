@@ -135,7 +135,7 @@ var x = document.getElementById("demo");
 var dbf = getFirestore(app);
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    navigator.geolocation.getCurrentPosition(sendPos);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
