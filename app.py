@@ -130,6 +130,8 @@ html(''' <html>
 <script>
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+import { getFirestore } from "firebase/firestore"
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -148,6 +150,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const dbf  = getFirestore()
 
 var x = document.getElementById("demo");
 var dbf = getFirestore(app);
@@ -164,12 +167,12 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 
 }
-
+const id = doc(dbf, 'wali')
 function sendPos(position) {
-  
-  app.firestore.collection("maps").doc("wali").set({lat: position.coords.latitude + position.coords.longitude}).then(() => {
-    console.log("Document created");
-  });
+  const docData = {
+    lat: position.coords.latitude
+  };
+  setDoc(id, docData)
 
 }
 
