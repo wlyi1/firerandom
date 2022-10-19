@@ -138,5 +138,5 @@ for i in range(total):
 st.write(lat)
 st.write(lis)
 st.write(lis[ran_num])
-dfmap = pd.DataFrame(lat, long, columns = ['lat, lon'])
+dfmap = pd.DataFrame({'lat': lat, 'lon': long})
 st.map(dfmap)
