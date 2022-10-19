@@ -119,7 +119,7 @@ with tab2:
                 lat_user = loc['coords']['latitude']
                 long_user = loc['coords']['longitude']
             except TypeError:
-                st.write("wak waw")
+                st.write(" ")
         gmaps = st.secrets['gmaps']
         foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
         
@@ -157,4 +157,10 @@ with tab2:
         st.success('Welcome To Randomku')
 
 with tab3:
-    st.write('pilih nama secara random')
+    def get_data_input():
+        return[]
+    st.subheader('Pilih Nama Secara Random')
+    
+    nama = st.text_input('Tulisin namanya siapa aja')
+    
+    get_data_input().append(nama)
