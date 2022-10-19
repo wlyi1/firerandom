@@ -110,7 +110,7 @@ with tab2:
         if st.checkbox("Cek Lokasiku"):
             loc = get_geolocation()
             with st.spinner('waiting'):
-                time.sleep(5)
+                loc = get_geolocation()
 
             #st.write(f"Your coordinates are {loc}")
             #st.write(loc['coords']['latitude'])
@@ -158,12 +158,14 @@ with tab2:
 
 with tab3:
         
-    st.subheader('Pilih Nama Secara Random')
+    st.subheader('Pilih Nama Secara Random 🤸🏻‍♂️ ')
     
-    nama = st.text_input('Tulisin namanya siapa aja (pisakan dengan tanda koma) ')
+    nama = st.text_input('Tulisin namanya siapa aja (pisahkan dengan tanda koma) ')
+    st.caption('tunggu sampai muncul list namanya ya 😵‍💫')
     lis_nama = nama.split(",")
     st.write(lis_nama)
     nos = [i for i in range(len(lis_nama))]
     no = random.choice(nos)
-    if st.button('Pilih Nama'):
-        st.warning(lis_nama[no])
+    with st.spinner('waiting'):
+        if st.button('Pilih Nama'):
+            st.warning(lis_nama[no])
