@@ -162,5 +162,6 @@ with tab3:
     st.subheader('Pilih Nama Secara Random')
     
     nama = st.text_input('Tulisin namanya siapa aja')
-    
-    get_data_input().append(nama)
+    lis_nama = get_data_input()
+    lis_nama.append(nama)
+    st.write(lis_nama)
