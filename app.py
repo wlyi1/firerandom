@@ -116,7 +116,7 @@ with tab2:
     try:
         lat_user = loc['coords']['latitude']
         long_user = loc['coords']['longitude']
-    except:
+    except NameError:
         st.success('Welcome To Randomku')
 
     gmaps = st.secrets['gmaps']
