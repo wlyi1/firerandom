@@ -135,11 +135,11 @@ for i in range(total):
     j = res['results'][i]['name']
     lis.append(j)
 
-st.write(lat)
-st.write(lis)
-st.write(lis[ran_num])
+#st.write(lat)
+#st.write(lis)
+#st.write(lis[ran_num])
 data = {'lat': [lat], 'lon': [long]}
 dfmap = pd.DataFrame(data)
-st.write(dfmap)
-st.map(dfmap)
+#st.write(dfmap)
+#st.map(dfmap)
 components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&q={lat}, {long}")
