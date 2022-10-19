@@ -113,14 +113,14 @@ long_user = loc['coords']['longitude']
 
 gmaps = st.secrets['gmaps']
 st.write(gmaps)
-url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&keyword=rumah+makan&language=id&key={gmaps}"
+url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&keyword=rumah+makan|bakso|mie+ayam|pecel|nasi+goreng&language=id&key={gmaps}"
 
 payload = {}
 headers = {}
 
 response = requests.request("GET", url, headers = headers, data = payload)
 res = response.json()
-st.write(res)
+#st.write(res)
 total = len(res['results'])
 num = [x for x in range(total)]
 st.write(num)
