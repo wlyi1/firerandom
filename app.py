@@ -120,6 +120,7 @@ headers = {}
 
 response = requests.request("GET", url, headers = headers, data = payload)
 res = response.json()
+st.write(res)
 total = len(res['results'])
 num = [x for x in range(total)]
 st.write(num)
