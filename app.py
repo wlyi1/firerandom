@@ -19,6 +19,9 @@ import streamlit.components.v1 as components
 from streamlit.components.v1 import html
 from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
 import time
+import googlemaps
+import random
+
 
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
@@ -100,6 +103,33 @@ if st.checkbox("Check my location"):
     with st.spinner('waiting'):
         time.sleep(3)
 
-    st.write(f"Your coordinates are {loc}")
+    #st.write(f"Your coordinates are {loc}")
     st.write(loc['coords']['latitude'])
     st.write(loc['coords']['longitude'])
+
+lat_user = loc['coords']['latitude']
+long_user = loc['coords']['longitude']
+
+gmaps = st.secrets['gmaps']
+url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&type=restaurant&keyword=cruise&key={gmaps}"
+
+payload = {}
+headers = {}
+
+response = requests.request("GET", url, headers = headers, data = payload)
+res = response.json()
+total = len(res['results'])
+num = [x for x in range(total)]
+ran_num = random.choice(num)
+
+lat = res['results'][ran_num]['geometry']['location']['lat']
+long = res['results'][ran_num]['geometry']['location']['long']
+
+lis = []
+for i in range(total):
+    j = res['results'][i]['name']
+    lis.append(j)
+
+st.write('lat, long')
+st.write(lis)
+st.write(lis[ran_num])
