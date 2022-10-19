@@ -166,6 +166,6 @@ with tab3:
     st.write(lis_nama)
     nos = [i for i in range(len(lis_nama))]
     no = random.choice(nos)
-    with st.spinner('waiting'):
+    with st.spinner('loading', key = 'wait'):
         if st.button('Pilih Nama'):
             st.warning(lis_nama[no])
