@@ -159,16 +159,19 @@ with tab2:
         st.success('Welcome To Randomku')
 
 with tab3:
-        
+    col4 = db.collection('pilihnama')    
     st.subheader('Pilih Nama Secara Random 🤸🏻‍♂️ ')
     
     nama = st.text_input('Tulisin namanya siapa aja (pisahkan dengan tanda koma) ')
     st.caption('tunggu sampai muncul list namanya ya 😵‍💫')
     lis_nama = nama.split(",")
     st.write(lis_nama)
-    nos = [i for i in range(len(lis_nama))]
+    total_nama = len(lis_nama)
+    nos = [i for i in range(total_nama)
     no = random.choice(nos)
+    name = lis_nama[no]
     with st.spinner('loading'):
         time.sleep(1)
         if st.button('Pilih Nama'):
-            st.warning(lis_nama[no])
+            st.warning(name)
+    col4.add({'nama': name, 'total' :total_nama, 'tanggal': tgl_random})
