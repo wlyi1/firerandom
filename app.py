@@ -120,6 +120,7 @@ response = requests.request("GET", url, headers = headers, data = payload)
 res = response.json()
 total = len(res['results'])
 num = [x for x in range(total)]
+st.write(num)
 ran_num = random.choice(num)
 
 lat = res['results'][ran_num]['geometry']['location']['lat']
