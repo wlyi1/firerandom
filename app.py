@@ -165,6 +165,7 @@ with tab3:
     
     nama = st.text_input('Tulisin namanya siapa aja (pisakan dengan tanda koma) ')
     lis_nama = nama.split(",")
+    st.write(lis_nama)
     nos = [i for i in range(lis_nama)]
     no = random.choice(nos)
     if st.button('Pilih Nama'):
