@@ -127,7 +127,7 @@ st.write(num)
 ran_num = random.choice(num)
 
 lat = res['results'][ran_num]['geometry']['location']['lat']
-long = res['results'][ran_num]['geometry']['location']['long']
+long = res['results'][ran_num]['geometry']['location']['lng']
 
 lis = []
 for i in range(total):
