@@ -163,8 +163,8 @@ with tab3:
     
     st.subheader('Pilih Nama Secara Random')
     
-    nama = st.text_input('Tulisin namanya siapa aja')
-    lis_nama = get_data_input()
-    if st.button('Add'):
-        lis_nama.append(nama)
-    st.write(lis_nama)
+    nama = st.text_input('Tulisin namanya siapa aja (pisakan dengan tanda koma) ')
+    lis_nama = nama.split(",")
+    no = random.choice([i for i in range(lis_nama)])
+    if st.button('Pilih Nama'):
+        st.write(lis_nama[no])
