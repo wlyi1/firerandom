@@ -172,9 +172,10 @@ with tab3:
     nos = [i for i in range(total_nama)]
     no = random.choice(nos)
     name = lis_nama[no]
-    col4.add({'nama': name, 'total' :total_nama, 'tanggal': tgl_random})
+    
     with st.spinner('loading'):
         time.sleep(1)
         if st.button('Pilih Nama'):
             st.warning(name)
+            col4.add({'nama': name, 'total' :total_nama, 'tanggal': tgl_random})
     
