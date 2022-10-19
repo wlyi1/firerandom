@@ -109,9 +109,10 @@ if st.checkbox("Check my location"):
 
 lat_user = loc['coords']['latitude']
 long_user = loc['coords']['longitude']
-st.write(lat_user)
+
 
 gmaps = st.secrets['gmaps']
+st.write(gmaps)
 url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&type=restaurant&keyword=cruise&key={gmaps}"
 
 payload = {}
