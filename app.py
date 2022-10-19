@@ -165,7 +165,7 @@ with tab3:
     
     nama = st.text_input('Tulisin namanya siapa aja (pisahkan dengan tanda koma) ')
     st.caption('tunggu sampai muncul list namanya ya 😵‍💫')
-    lis_nama = nama.split(",")
+    lis_nama = nama.split(", ")
     st.write(lis_nama)
     total_nama = len(lis_nama)
     nos = [i for i in range(total_nama)]
