@@ -103,55 +103,56 @@ with tab1:
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with tab2:
-    st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
-    st.write('nyalain dulu GPS nya dan izinkan')
-    if st.checkbox("Cek Lokasiku"):
-        loc = get_geolocation()
-        with st.spinner('waiting'):
-            time.sleep(5)
-
-        #st.write(f"Your coordinates are {loc}")
-        #st.write(loc['coords']['latitude'])
-        #st.write(loc['coords']['longitude'])
+    
     try:
-        lat_user = loc['coords']['latitude']
-        long_user = loc['coords']['longitude']
+        st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
+        st.write('nyalain dulu GPS nya dan izinkan')
+        if st.checkbox("Cek Lokasiku"):
+            loc = get_geolocation()
+            with st.spinner('waiting'):
+                time.sleep(5)
+
+            #st.write(f"Your coordinates are {loc}")
+            #st.write(loc['coords']['latitude'])
+            #st.write(loc['coords']['longitude'])
+            lat_user = loc['coords']['latitude']
+            long_user = loc['coords']['longitude']
+        
+        gmaps = st.secrets['gmaps']
+        foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
+        
+        url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&types=restaurant&language=id&key={gmaps}"
+
+        payload = {}
+        headers = {}
+
+        response = requests.request("GET", url, headers = headers, data = payload)
+        res = response.json()
+        #st.write(res)
+        total = len(res['results'])
+        num = [x for x in range(total)]
+        #st.write(num)
+        ran_num = random.choice(num)
+
+        lat = res['results'][ran_num]['geometry']['location']['lat']
+        long = res['results'][ran_num]['geometry']['location']['lng']
+
+        lis = []
+        for i in range(total):
+            j = res['results'][i]['name']
+            lis.append(j)
+
+        #st.write(lat)
+        #st.write(lis)
+        st.subheader(lis[ran_num])
+        data = {'lat': [lat], 'lon': [long]}
+        dfmap = pd.DataFrame(data)
+        #st.write(dfmap)
+        #st.map(dfmap)
+        components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&q={lat}, {long}")
+    
     except NameError:
         st.success('Welcome To Randomku')
-
-    gmaps = st.secrets['gmaps']
-    foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
-    try:
-        url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&types=restaurant&language=id&key={gmaps}"
-    except NameError:
-        st.success(' ')
-    payload = {}
-    headers = {}
-
-    response = requests.request("GET", url, headers = headers, data = payload)
-    res = response.json()
-    #st.write(res)
-    total = len(res['results'])
-    num = [x for x in range(total)]
-    #st.write(num)
-    ran_num = random.choice(num)
-
-    lat = res['results'][ran_num]['geometry']['location']['lat']
-    long = res['results'][ran_num]['geometry']['location']['lng']
-
-    lis = []
-    for i in range(total):
-        j = res['results'][i]['name']
-        lis.append(j)
-
-    #st.write(lat)
-    #st.write(lis)
-    st.subheader(lis[ran_num])
-    data = {'lat': [lat], 'lon': [long]}
-    dfmap = pd.DataFrame(data)
-    #st.write(dfmap)
-    #st.map(dfmap)
-    components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&q={lat}, {long}")
 
 with tab3:
     st.write('pilih nama secara random')
