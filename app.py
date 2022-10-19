@@ -138,3 +138,5 @@ for i in range(total):
 st.write(lat)
 st.write(lis)
 st.write(lis[ran_num])
+
+st.map(lat, long)
