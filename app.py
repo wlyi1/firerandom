@@ -159,6 +159,8 @@ with tab2:
         st.success('Welcome To Randomku')
 
 with tab3:
+    st.session_state
+    
     col4 = db.collection('pilihnama')    
     st.subheader('Pilih Nama Secara Random 🤸🏻‍♂️ ')
     
@@ -170,8 +172,9 @@ with tab3:
     nos = [i for i in range(total_nama)]
     no = random.choice(nos)
     name = lis_nama[no]
+    col4.add({'nama': name, 'total' :total_nama, 'tanggal': tgl_random})
     with st.spinner('loading'):
         time.sleep(1)
         if st.button('Pilih Nama'):
             st.warning(name)
-    col4.add({'nama': name, 'total' :total_nama, 'tanggal': tgl_random})
+    
