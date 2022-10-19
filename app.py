@@ -103,20 +103,19 @@ with tab1:
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with tab2:
-    try:
-        st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
-        st.write('nyalain dulu GPS nya dan izinkan')
-        if st.checkbox("Cek Lokasiku"):
-            loc = get_geolocation()
-            with st.spinner('waiting'):
-                time.sleep(5)
+    st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
+    st.write('nyalain dulu GPS nya dan izinkan')
+    if st.checkbox("Cek Lokasiku"):
+        loc = get_geolocation()
+        with st.spinner('waiting'):
+            time.sleep(5)
 
-            #st.write(f"Your coordinates are {loc}")
-            #st.write(loc['coords']['latitude'])
-            #st.write(loc['coords']['longitude'])
-        
-            lat_user = loc['coords']['latitude']
-            long_user = loc['coords']['longitude']
+        #st.write(f"Your coordinates are {loc}")
+        #st.write(loc['coords']['latitude'])
+        #st.write(loc['coords']['longitude'])
+    try:
+        lat_user = loc['coords']['latitude']
+        long_user = loc['coords']['longitude']
     except NameError:
         st.success('Welcome To Randomku')
 
