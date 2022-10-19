@@ -69,7 +69,7 @@ with tab1:
     st.image(image1)
     st.caption('Jangan lupa tag @randomku dan pake #random #randomku biar tau cerita randommu hari ini 🤣')
 
-    col = db.collection('waliy')
+    col = db.collection('randomku')
     if st.button('Randomin'):
         st.image(image3)
         col.add({'Tanggal' : tgl_random, 'Random' : today_rand})
@@ -79,20 +79,18 @@ with tab1:
     st.markdown("----", unsafe_allow_html=True)
 
     db1 = firestore.Client(credentials=creds, project="testrandom1-6cf06")
-    col1 = db.collection('Story_waliy')
+    col1 = db.collection('story')
 
     with st.form("my_form"):
         st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
         nama = st.text_input("Namanya? 🧑 👩")
-        cerita = st.text_area("Cerita singkatnya gimana nih? ✍🏻")
+        cerita = st.text_area("Cerita randomnya gimana kaka? ✍🏻")
         submitted = st.form_submit_button("Submit")
         if submitted:
-            col1.add({"Tanggal": tgl_random, "Cerita": cerita})
+            col1.add({"tanggal": tgl_random, "cerita": cerita})
             st.write('Terimakasih 👍')
     # If the user clicked the submit button. write the data from the form to the database.
     # You can store any data you want here. Just modify that dictionary below (the entries between the {}).
-
-
 
     hide_streamlit_style = """
                 <style>
@@ -107,10 +105,10 @@ with tab2:
     try:
         st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
         st.write('nyalain dulu GPS nya dan izinkan')
-        if st.checkbox("Cek Lokasiku"):
-            #loc = get_geolocation()
+        if st.checkbox("Cek Makanan di Sekitarku"):
+            
             with st.spinner('waiting'):
-                time.sleep(1)
+                time.sleep(0.5)
                 loc = get_geolocation()
 
             #st.write(f"Your coordinates are {loc}")
