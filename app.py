@@ -142,4 +142,4 @@ data = {'lat': [lat], 'lon': [long]}
 dfmap = pd.DataFrame(data)
 st.write(dfmap)
 st.map(dfmap)
-components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&q=Space+Needle,Seattle+WA")
+components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&location={lat}%2C{long}")
