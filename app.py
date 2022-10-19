@@ -108,7 +108,7 @@ with tab2:
         st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
         st.write('nyalain dulu GPS nya dan izinkan')
         if st.checkbox("Cek Lokasiku"):
-            loc = get_geolocation()
+            #loc = get_geolocation()
             with st.spinner('waiting'):
                 loc = get_geolocation()
 
