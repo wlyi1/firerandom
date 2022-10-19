@@ -87,7 +87,7 @@ with tab1:
         cerita = st.text_area("Cerita randomnya gimana kaka? ✍🏻")
         submitted = st.form_submit_button("Submit")
         if submitted:
-            col1.add({"tanggal": tgl_random, "cerita": cerita})
+            col1.add({"nama": nama, "tanggal": tgl_random, "cerita": cerita})
             st.write('Terimakasih 👍')
     # If the user clicked the submit button. write the data from the form to the database.
     # You can store any data you want here. Just modify that dictionary below (the entries between the {}).
