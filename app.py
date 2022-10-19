@@ -113,7 +113,7 @@ long_user = loc['coords']['longitude']
 
 gmaps = st.secrets['gmaps']
 st.write(gmaps)
-url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&keyword=rumah+makan or ayam+geprek or nasi+goreng&language=id&key={gmaps}"
+url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&keyword=rumah+makan or ayam+geprek&language=id&key={gmaps}"
 
 payload = {}
 headers = {}
