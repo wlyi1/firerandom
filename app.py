@@ -159,7 +159,6 @@ with tab2:
         st.success('Welcome To Randomku')
 
 with tab3:
-    st.session_state
     
     col4 = db.collection('pilihnama')    
     st.subheader('Pilih Nama Secara Random 🤸🏻‍♂️ ')
