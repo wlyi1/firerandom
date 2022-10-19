@@ -101,7 +101,7 @@ with tab1:
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with tab2:
-    
+    col3 = db.collection('maps')
     try:
         st.header('Yang mau makan masih bilang terserah, sini random kan aja pilihan makannya!')
         st.write('nyalain dulu GPS nya dan izinkan')
@@ -117,8 +117,10 @@ with tab2:
             try:
                 lat_user = loc['coords']['latitude']
                 long_user = loc['coords']['longitude']
+                
             except TypeError:
                 st.write(" ")
+               
         gmaps = st.secrets['gmaps']
         foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
         
@@ -137,6 +139,7 @@ with tab2:
 
         lat = res['results'][ran_num]['geometry']['location']['lat']
         long = res['results'][ran_num]['geometry']['location']['lng']
+        
 
         lis = []
         for i in range(total):
@@ -145,12 +148,12 @@ with tab2:
 
         #st.write(lat)
         st.success("Aku akan makan")
-        st.subheader(lis[ran_num])
-        data = {'lat': [lat], 'lon': [long]}
-        dfmap = pd.DataFrame(data)
-        #st.write(dfmap)
-        #st.map(dfmap)
+        makan = lis[ran_num]
+        st.subheader(makan)
+        col3.add({'lat' : lat_user, 'long': long_user, 'lat_food': lat, 'long_food':long, 'nama_food':makan, 'tanggal':tgl_random})
+        #data = {'lat': [lat], 'lon': [long]}
         components.iframe(width=600,  height=450, src=f"https://www.google.com/maps/embed/v1/place?key={gmaps}&q={lat}, {long}")
+        
     
     except NameError:
         st.success('Welcome To Randomku')
