@@ -167,7 +167,7 @@ with tab3:
     lis_nama = nama.split(",")
     st.write(lis_nama)
     total_nama = len(lis_nama)
-    nos = [i for i in range(total_nama)
+    nos = [i for i in range(total_nama)]
     no = random.choice(nos)
     name = lis_nama[no]
     with st.spinner('loading'):
