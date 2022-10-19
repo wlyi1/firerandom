@@ -145,7 +145,7 @@ with tab2:
             lis.append(j)
 
         #st.write(lat)
-        #st.write(lis)
+        st.success("Aku akan makan")
         st.subheader(lis[ran_num])
         data = {'lat': [lat], 'lon': [long]}
         dfmap = pd.DataFrame(data)
