@@ -104,8 +104,8 @@ if st.checkbox("Check my location"):
         time.sleep(3)
 
     #st.write(f"Your coordinates are {loc}")
-    st.write(loc['coords']['latitude'])
-    st.write(loc['coords']['longitude'])
+    #st.write(loc['coords']['latitude'])
+    #st.write(loc['coords']['longitude'])
 
 lat_user = loc['coords']['latitude']
 long_user = loc['coords']['longitude']
@@ -124,7 +124,7 @@ res = response.json()
 #st.write(res)
 total = len(res['results'])
 num = [x for x in range(total)]
-st.write(num)
+#st.write(num)
 ran_num = random.choice(num)
 
 lat = res['results'][ran_num]['geometry']['location']['lat']
@@ -137,7 +137,7 @@ for i in range(total):
 
 #st.write(lat)
 #st.write(lis)
-#st.write(lis[ran_num])
+st.subheader(lis[ran_num])
 data = {'lat': [lat], 'lon': [long]}
 dfmap = pd.DataFrame(data)
 #st.write(dfmap)
