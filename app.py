@@ -135,6 +135,6 @@ for i in range(total):
     j = res['results'][i]['name']
     lis.append(j)
 
-st.write('lat, long')
+st.write(lat)
 st.write(lis)
 st.write(lis[ran_num])
