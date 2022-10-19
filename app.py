@@ -22,6 +22,7 @@ import time
 
 import random
 
+showErrorDetails = False
 
 def _font_as_bytes():
     with open('https://raw.githubusercontent.com/wlyi1/random/main/Random/Quicksand-Regular.ttf', 'rb') as f:
@@ -112,10 +113,11 @@ with tab2:
         #st.write(f"Your coordinates are {loc}")
         #st.write(loc['coords']['latitude'])
         #st.write(loc['coords']['longitude'])
-
-    lat_user = loc['coords']['latitude']
-    long_user = loc['coords']['longitude']
-
+    try:
+        lat_user = loc['coords']['latitude']
+        long_user = loc['coords']['longitude']
+    except:
+        st.success('Welcome To Randomku')
 
     gmaps = st.secrets['gmaps']
     foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
