@@ -19,7 +19,7 @@ import streamlit.components.v1 as components
 from streamlit.components.v1 import html
 from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
 import time
-import googlemaps
+
 import random
 
 
