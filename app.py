@@ -157,10 +157,7 @@ with tab2:
         st.success('Welcome To Randomku')
 
 with tab3:
-    @st.cache(allow_output_mutation=True)
-    def get_data_input():
-        return[]
-    
+        
     st.subheader('Pilih Nama Secara Random')
     
     nama = st.text_input('Tulisin namanya siapa aja (pisakan dengan tanda koma) ')
@@ -169,4 +166,4 @@ with tab3:
     nos = [i for i in range(len(lis_nama))]
     no = random.choice(nos)
     if st.button('Pilih Nama'):
-        st.write(lis_nama[no])
+        st.warning(lis_nama[no])
