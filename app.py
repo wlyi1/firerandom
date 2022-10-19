@@ -110,6 +110,7 @@ with tab2:
         if st.checkbox("Cek Lokasiku"):
             #loc = get_geolocation()
             with st.spinner('waiting'):
+                time.sleep(1)
                 loc = get_geolocation()
 
             #st.write(f"Your coordinates are {loc}")
