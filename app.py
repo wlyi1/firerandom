@@ -121,9 +121,10 @@ with tab2:
 
     gmaps = st.secrets['gmaps']
     foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
-
-    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&types=restaurant&language=id&key={gmaps}"
-
+    try:
+        url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat_user}%2C{long_user}&radius=1500&types=restaurant&language=id&key={gmaps}"
+    except NameError:
+        st.success(' ')
     payload = {}
     headers = {}
 
