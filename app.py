@@ -115,9 +115,11 @@ with tab2:
             #st.write(f"Your coordinates are {loc}")
             #st.write(loc['coords']['latitude'])
             #st.write(loc['coords']['longitude'])
-            lat_user = loc['coords']['latitude']
-            long_user = loc['coords']['longitude']
-        
+            try:
+                lat_user = loc['coords']['latitude']
+                long_user = loc['coords']['longitude']
+            except TypeError:
+                st.write("wak waw")
         gmaps = st.secrets['gmaps']
         foods = ['rumah+makan', 'pecel', 'nasi+goreng', '']
         
