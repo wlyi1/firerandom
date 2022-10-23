@@ -67,7 +67,7 @@ tab1, tab2, tab3 = st.tabs(['Kegiatan Random ⏳', 'Makan Terserah 🍵', 'Pilih
 with tab1:
 
     st.image(image1)
-    st.caption('Jangan lupa tag @randomku dan pake #random #randomku biar tau cerita randommu hari ini 🤣')
+    st.caption('Jangan lupa tag @randomku25 dan pake #random #randomku biar tau cerita randommu hari ini 🤣')
 
     col = db.collection('randomku')
     if st.button('Randomin'):
