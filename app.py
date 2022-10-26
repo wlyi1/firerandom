@@ -96,8 +96,8 @@ with tab1:
     #st.caption('tulisin disini, bebas apa aja!')
     colide = db.collection('ideuser')
     with st.form("ide randommu"):
-        st.write("tulisin apa aja ya bebas!")
-        ide = st.text_input('Idenya')
+        #st.write("tulisin apa aja ya bebas!")
+        ide = st.text_input('')
         sub = st.form_submit_button('Kirim')
         if sub:
             colide.add({'ide': ide})
