@@ -92,12 +92,12 @@ with tab1:
     # If the user clicked the submit button. write the data from the form to the database.
     # You can store any data you want here. Just modify that dictionary below (the entries between the {}).
     
-    st.subheader('Punya ide aktivitas random?")
+    st.subheader("Punya ide aktivitas random?")
     #st.caption('tulisin disini, bebas apa aja!')
     colide = db.collection('ideuser')
-    with st.form('ide randommu"):
+    with st.form("ide randommu"):
         st.write("tulisin apa aja ya bebas!")
-        ide = st.text_input("Idenya')
+        ide = st.text_input('Idenya')
         sub = st.form_submit_button('Kirim')
         if sub:
             colide.add({'ide': ide})
