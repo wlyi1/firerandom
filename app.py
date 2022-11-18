@@ -81,7 +81,7 @@ with tab1:
     db1 = firestore.Client(credentials=creds, project="testrandom1-6cf06")
     col1 = db.collection('story')
 
-    with st.form("my_form"):
+    with st.form("my_form", clear_on_submit=True):
         st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
         nama = st.text_input("Namanya? 🧑 👩")
         cerita = st.text_area("Cerita randomnya? ✍🏻")
