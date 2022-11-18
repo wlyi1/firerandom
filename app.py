@@ -84,7 +84,7 @@ with tab1:
     with st.form("my_form"):
         st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
         nama = st.text_input("Namanya? 🧑 👩")
-        cerita = st.text_area("Cerita randomnya gimana kaka? ✍🏻")
+        cerita = st.text_area("Cerita randomnya? ✍🏻")
         submitted = st.form_submit_button("Submit")
         if submitted:
             col1.add({"nama": nama, "tanggal": tgl_random, "cerita": cerita})
@@ -95,7 +95,7 @@ with tab1:
     st.subheader("Punya ide aktivitas random?")
     #st.caption('tulisin disini, bebas apa aja!')
     colide = db.collection('ideuser')
-    with st.form("ide randommu"):
+    with st.form("ide randommu", clear_on_submit=True):
         #st.write("tulisin apa aja ya bebas!")
         ide = st.text_input('')
         sub = st.form_submit_button('Kirim')
