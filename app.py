@@ -35,7 +35,7 @@ db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
 
 
-resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/Frame%202(2).png')
+resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/back.png')
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
