@@ -105,8 +105,8 @@ with tab1:
     
     doc = db.collection('ideuser')
     datas = doc.get()
-    st.write(datas)
-    
+    st.write(datas.to_list())
+
     hide_streamlit_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
