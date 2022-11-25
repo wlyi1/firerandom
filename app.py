@@ -104,8 +104,8 @@ with tab1:
             st.write('makasih idenya ya')
     
     doc = db.collection('ideuser')
-    datas = doc.get()
-    st.write(datas.to_dict())
+    datas = list(doc.stream())
+    st.write(datas)
 
     hide_streamlit_style = """
                 <style>
