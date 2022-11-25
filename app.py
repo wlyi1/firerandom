@@ -35,12 +35,12 @@ db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
 
 
-resp = requests.get('https://raw.githubusercontent.com/wlyi1/random/main/Random/rdt1.png')
+resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/Frame%202(2).png')
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
 data = pd.read_csv('rand_aktivitas.csv')
-image1 = 'https://raw.githubusercontent.com/wlyi1/firerandom/master/Frame%202(2).png'
+image1 = 'https://raw.githubusercontent.com/wlyi1/random/main/Random/a3a.png'
 
 
 list_rand = data.name
