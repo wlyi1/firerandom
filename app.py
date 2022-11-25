@@ -105,7 +105,8 @@ with tab1:
     
     doc = db.collection('ideuser')
     datas = list(doc.stream())
-    st.write(datas)
+    list_random = list(map(lambda x: x.to_dict(), datas))
+    st.write(list_random)
 
     hide_streamlit_style = """
                 <style>
