@@ -39,9 +39,14 @@ resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/f
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
-data = pd.read_csv('rand_aktivitas.csv')
-image1 = 'https://raw.githubusercontent.com/wlyi1/random/main/Random/a3a.png'
+doc = db.collection('list')
+datas = list(doc.stream())
+list_random = list(map(lambda x: x.to_dict(), datas))
+data = pd.DataFrame(list_random)
 
+#data = pd.read_csv('rand_aktivitas.csv')
+
+image1 = 'https://raw.githubusercontent.com/wlyi1/random/main/Random/a3a.png'
 
 list_rand = data.name
 tgl_random = datetime.datetime.now()
@@ -103,11 +108,7 @@ with tab1:
             colide.add({'ide': ide})
             st.write('makasih idenya ya')
     
-    doc = db.collection('ideuser')
-    datas = list(doc.stream())
-    list_random = list(map(lambda x: x.to_dict(), datas))
-    df = pd.DataFrame(list_random)
-    st.write(df)
+    
 
     hide_streamlit_style = """
                 <style>
