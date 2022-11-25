@@ -35,7 +35,7 @@ db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
 
 
-resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/back.png')
+resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/frame1.png')
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
@@ -57,7 +57,7 @@ font = ImageFont.truetype(path_font, 55)
 font1 = ImageFont.truetype(path_font_2, 32)
 
 img= ImageDraw.Draw(image3)
-img.text((450,390), hari, font=font1, fill=(0,0,0))
+img.text((847,47), hari, font=font1, fill=(0,0,0))
 xc = 470
 for i in word:
     img.text((80,xc), i, font=font, fill=(0,0,0))
