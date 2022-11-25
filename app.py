@@ -102,6 +102,11 @@ with tab1:
         if sub:
             colide.add({'ide': ide})
             st.write('makasih idenya ya')
+    
+    doc = db.collection('ideuser')
+    datas = doc.get()
+    st.write(datas)
+    
     hide_streamlit_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
