@@ -35,7 +35,7 @@ db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
 
 
-resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/frame.png')
+resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/pic.png')
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
@@ -62,17 +62,17 @@ font = ImageFont.truetype(path_font, 55)
 font1 = ImageFont.truetype(path_font_2, 32)
 
 img= ImageDraw.Draw(image3)
-img.text((847,47), hari, font=font1, fill=(0,0,0))
+img.text((845,58), hari, font=font1, fill=(78,98,129))
 xc = 470
 for i in word:
-    img.text((80,xc), i, font=font, fill=(0,0,0))
+    img.text((80,xc), i, font=font, fill=(78,98,129))
     xc += 55
 
 tab1, tab2, tab3 = st.tabs(['Kegiatan Random ⏳', 'Makan Terserah 🍵', 'Pilih Orang 😮‍💨'])
 with tab1:
 
     st.image(image1)
-    st.caption('tag @randomku25 #random #randomku biar tau cerita randommu hari ini 🤣')
+    #st.caption('tag @randomku25 #random #randomku biar tau cerita randommu hari ini 🤣')
 
     col = db.collection('randomku')
     if st.button('Randomin'):
@@ -87,7 +87,7 @@ with tab1:
     col1 = db.collection('story')
 
     with st.form("my_form", clear_on_submit=True):
-        st.write("Ceritain ke RandomKu dong tentang aktivitas randommu hari ini 😃")
+        st.write("Ceritain aktivitas randommu hari ini 😃")
         nama = st.text_input("Namanya? 🧑 👩")
         cerita = st.text_area("Cerita randomnya? ✍🏻")
         submitted = st.form_submit_button("Submit")
