@@ -35,7 +35,7 @@ db = firestore.Client(credentials=creds, project="testrandom1-6cf06")
 
 
 
-resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/frame1.png')
+resp = requests.get('https://raw.githubusercontent.com/wlyi1/firerandom/master/frame.png')
 image3 = Image.open(BytesIO(resp.content))
 
 #Data Sources
@@ -56,8 +56,8 @@ today_rand = random.choice(list_rand)
 wrapper = textwrap.TextWrapper(width=30)
 word = wrapper.wrap(text=today_rand)
 hari = dt.today().strftime('%Y-%m-%d')
-path_font = "Quicksand-Regular.ttf"
-path_font_2 = 'Quicksand-Bold.ttf'
+path_font = "Inter-Regular.ttf"
+path_font_2 = 'Inter-Bold.ttf'
 font = ImageFont.truetype(path_font, 55)
 font1 = ImageFont.truetype(path_font_2, 32)
 
